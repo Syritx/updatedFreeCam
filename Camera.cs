@@ -37,12 +37,13 @@ namespace _3d {
 
             lookEye = Vector3.Normalize(lookEye);
 
-            if (game.IsKeyDown(Keys.W)) {
-                position += lookEye * speed;
-            }
-            else if (game.IsKeyDown(Keys.S)) {
-                position -= lookEye * speed;
-            }
+            if (game.IsKeyDown(Keys.W)) position += lookEye * speed;
+            else if (game.IsKeyDown(Keys.S)) position -= lookEye * speed;
+
+            Vector3 right = Vector3.Cross(lookEye, up);
+
+            if (game.IsKeyDown(Keys.A)) position -= right * speed;
+            if (game.IsKeyDown(Keys.D)) position += right * speed;
         }
 
         void MouseMove(MouseMoveEventArgs e) {
