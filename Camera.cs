@@ -40,7 +40,7 @@ namespace _3d {
             if (game.IsKeyDown(Keys.W)) position += lookEye * speed;
             else if (game.IsKeyDown(Keys.S)) position -= lookEye * speed;
 
-            Vector3 right = Vector3.Cross(lookEye, up);
+            Vector3 right = Vector3.Normalize(Vector3.Cross(lookEye, up));
 
             if (game.IsKeyDown(Keys.A)) position -= right * speed;
             if (game.IsKeyDown(Keys.D)) position += right * speed;
